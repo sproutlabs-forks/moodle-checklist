@@ -2774,9 +2774,9 @@ class checklist_class {
         $groupings = self::get_user_groupings($userid, $courseid);
         if ($groupings) {
             $groupings[] = 0;
-            $groupingsql = " {$prefix}grouping IN (".implode(',', $groupings).') ';
+            $groupingsql = " {$prefix}`grouping` IN (".implode(',', $groupings).') ';
         } else {
-            $groupingsql = " {$prefix}grouping = 0 ";
+            $groupingsql = " {$prefix}`grouping` = 0 ";
         }
         return $groupingsql;
     }
