@@ -2770,13 +2770,13 @@ class checklist_class {
      * @param string $prefix (optional) e.g. 'item.'
      * @return string
      */
-    public static function get_grouping_sql($userid, $courseid, $prefix = '') {
+    public static function get_grouping_sql($userid, $courseid, $prefix = '{checklist_item}.') {
         $groupings = self::get_user_groupings($userid, $courseid);
         if ($groupings) {
             $groupings[] = 0;
-            $groupingsql = " {$prefix}`grouping` IN (".implode(',', $groupings).') ';
+            $groupingsql = " {$prefix}grouping IN (".implode(',', $groupings).') ';
         } else {
-            $groupingsql = " {$prefix}`grouping` = 0 ";
+            $groupingsql = " {$prefix}grouping = 0 ";
         }
         return $groupingsql;
     }
