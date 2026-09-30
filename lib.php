@@ -867,7 +867,7 @@ function checklist_get_completion_state($course, $cm, $userid, $type) {
 
     if ($checklist->completionpercent) {
         list($ticked, $total) = checklist_class::get_user_progress($cm->instance, $userid);
-        $value = $checklist->completionpercent <= ($ticked * 100 / $total);
+        $value = $total > 0 && $checklist->completionpercent <= ($ticked * 100 / $total);
         if ($type == COMPLETION_AND) {
             $result = $result && $value;
         } else {
